@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiruthika Venkatesan — PM · Two-Sided Marketplaces · Workflow Automation · AI-First</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#faf9f6;--white:#fff;--ink:#141210;
+  --s1:#f2f0ec;--b1:rgba(20,18,16,.07);--b2:rgba(20,18,16,.14);
+  --muted:rgba(20,18,16,.52);--dim:rgba(20,18,16,.3);
+  --green:#1a4731;--green2:#2d6a4f;--greenLt:#d8f3dc;--greenGlow:rgba(26,71,49,.2);
+  --amber:#d4a017;--amberLt:#fef9e7;
+  --dark:#0d1f17;
+  --serif:'Fraunces',Georgia,serif;--sans:'Inter',sans-serif;--mono:'DM Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--green2);}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:.9rem 3rem;background:rgba(250,249,246,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);}
+.nl{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);text-decoration:none;font-style:italic;}
+.nl span{color:var(--green2);font-style:normal;}
+.nr{display:flex;gap:2rem;list-style:none;}
+.nr a{font-size:.65rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nr a:hover,.nr a.active{color:var(--green2);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;overflow:hidden;}
+.hl{background:var(--dark);display:flex;flex-direction:column;justify-content:center;padding:9rem 4rem 6rem 5.5rem;position:relative;overflow:hidden;}
+.hl::before{content:'';position:absolute;bottom:-10%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(45,106,79,.2) 0%,transparent 65%);pointer-events:none;}
+.hr{background:var(--bg);display:flex;flex-direction:column;justify-content:center;padding:9rem 3.5rem 6rem;border-left:1px solid var(--b1);}
+
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green2);margin-bottom:1.75rem;opacity:0;animation:up .7s ease .1s forwards;}
+.eyebrow::before{content:'';width:18px;height:1.5px;background:var(--green2);}
+.hero-name{font-family:var(--serif);font-size:clamp(2.8rem,4.5vw,5.2rem);line-height:.88;font-weight:800;color:var(--white);margin-bottom:.5rem;opacity:0;animation:up .7s ease .25s forwards;letter-spacing:-.02em;}
+.hero-role{font-family:var(--serif);font-size:clamp(.95rem,1.5vw,1.35rem);font-weight:600;color:var(--green2);margin-bottom:1.6rem;opacity:0;animation:up .7s ease .35s forwards;font-style:italic;}
+.hero-desc{font-size:.88rem;line-height:1.85;color:rgba(255,255,255,.56);max-width:44ch;margin-bottom:2.5rem;opacity:0;animation:up .7s ease .45s forwards;}
+.hero-desc strong{color:var(--white);font-weight:500;}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;opacity:0;animation:up .7s ease .6s forwards;}
+.btn-p{display:inline-flex;align-items:center;gap:.4rem;background:var(--green2);color:#fff;padding:.82rem 1.75rem;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:all .22s;}
+.btn-p:hover{background:var(--green);transform:translateY(-2px);box-shadow:0 8px 32px var(--greenGlow);}
+.btn-s{display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:rgba(255,255,255,.62);padding:.82rem 1.75rem;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.04em;text-decoration:none;border:1.5px solid rgba(255,255,255,.14);transition:all .22s;}
+.btn-s:hover{border-color:var(--green2);color:var(--green2);}
+
+/* Hero right — GM scorecard */
+.sc{opacity:0;animation:fade 1s ease .8s forwards;}
+.sc-l{font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.85rem;}
+.sc-item{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;border-bottom:1px solid var(--b1);}
+.sc-item:first-of-type{border-top:1px solid var(--b1);}
+.sc-label{font-family:var(--serif);font-size:.88rem;font-style:italic;color:var(--ink);}
+.sc-val{font-family:var(--mono);font-size:.65rem;font-weight:500;padding:.2rem .6rem;border-radius:2px;}
+.sv-g{background:var(--greenLt);color:var(--green);}
+.sv-a{background:var(--amberLt);color:var(--amber);}
+
+.pills-r{margin-top:1.5rem;opacity:0;animation:fade 1s ease 1s forwards;}
+.pr-l{font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;}
+.pr-g{display:flex;flex-wrap:wrap;gap:.38rem;}
+.pp{font-family:var(--mono);font-size:.55rem;letter-spacing:.04em;border:1px solid var(--b1);color:var(--muted);padding:.2rem .5rem;transition:all .2s;}
+.pp:hover{border-color:var(--b2);color:var(--ink);}
+.pp.hi{background:var(--greenLt);color:var(--green2);border-color:rgba(45,106,79,.25);font-weight:500;}
+
+/* STRIP */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--dark);}
+.si{padding:2.25rem 2rem;border-right:1px solid rgba(255,255,255,.06);transition:background .2s;}
+.si:last-child{border-right:none;}
+.si:hover{background:rgba(45,106,79,.15);}
+.sn{font-family:var(--serif);font-size:2.5rem;font-weight:800;line-height:1;color:var(--green2);margin-bottom:.22rem;}
+.ss{font-size:.67rem;color:rgba(255,255,255,.4);line-height:1.5;font-family:var(--mono);}
+
+section{position:relative;z-index:1;}
+.con{max-width:1120px;margin:0 auto;padding:0 3.5rem;}
+.sh{display:flex;align-items:center;gap:1.25rem;margin-bottom:3.5rem;}
+.shn{font-family:var(--mono);font-size:.56rem;color:var(--green2);letter-spacing:.14em;}
+.sht{font-family:var(--serif);font-size:2.1rem;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-.02em;}
+.shr{flex:1;height:1px;background:var(--b1);margin-left:.75rem;}
+
+/* EXPERIENCE */
+.exp-sec{padding:7rem 0;background:var(--white);border-top:3px solid var(--dark);}
+.ei{display:grid;grid-template-columns:185px 1fr;gap:3.5rem;padding:2.75rem 0;border-bottom:1px solid var(--b1);opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s;}
+.ei.vis{opacity:1;transform:translateY(0);}
+.ei:last-child{border-bottom:none;}
+.eco{font-family:var(--mono);font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green2);margin-bottom:.3rem;}
+.edt{font-size:.65rem;color:var(--muted);margin-bottom:.55rem;font-family:var(--mono);}
+.ebdg{display:inline-block;font-family:var(--mono);font-size:.5rem;letter-spacing:.06em;text-transform:uppercase;color:var(--green2);border:1px solid rgba(45,106,79,.22);padding:.14rem .46rem;background:var(--greenLt);}
+.er{font-family:var(--serif);font-size:1.28rem;font-weight:700;line-height:1.15;color:var(--ink);margin-bottom:.8rem;letter-spacing:-.01em;}
+.ed{font-size:.81rem;color:var(--muted);line-height:1.78;margin-bottom:1.1rem;}
+.ew{display:flex;flex-wrap:wrap;gap:.4rem;}
+.wt{font-family:var(--mono);font-size:.54rem;letter-spacing:.04em;background:var(--greenLt);color:var(--green2);border:1px solid rgba(45,106,79,.18);padding:.2rem .5rem;transition:all .2s;}
+.wt:hover{background:var(--green2);color:#fff;}
+
+/* CAPABILITIES */
+.cap-sec{padding:7rem 0;background:var(--s1);}
+.cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;background:var(--b1);}
+.cg{background:var(--white);padding:2.5rem;position:relative;overflow:hidden;transition:background .2s;}
+.cg:hover{background:var(--dark);}
+.cg:hover .cg-title,.cg:hover .cg-desc{color:var(--white);}
+.cg:hover .cg-desc{color:rgba(255,255,255,.6);}
+.cg:hover .cg-metric{background:rgba(45,106,79,.2);color:var(--green2);border-color:var(--green2);}
+.cg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green2);transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.cg:hover::after{transform:scaleX(1);}
+.cg-tag{font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green2);margin-bottom:.75rem;}
+.cg-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;letter-spacing:-.01em;transition:color .2s;}
+.cg-desc{font-size:.78rem;color:var(--muted);line-height:1.68;transition:color .2s;}
+.cg-metric{margin-top:1rem;padding:.45rem .72rem;background:var(--greenLt);font-family:var(--mono);font-size:.56rem;color:var(--green2);letter-spacing:.04em;border-left:2px solid var(--green2);transition:all .2s;}
+
+/* PROJECTS */
+.proj-sec{padding:7rem 0;background:var(--white);border-top:1px solid var(--b1);}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--b1);}
+.pc{background:var(--white);padding:2.75rem;position:relative;overflow:hidden;opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s,background .2s;}
+.pc.vis{opacity:1;transform:translateY(0);}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--dark),var(--green2),transparent);}
+.pc:hover{background:var(--dark);}
+.pc:hover .pt,.pc:hover .pd,.pc:hover .rl{color:var(--white);}
+.pc:hover .pd{color:rgba(255,255,255,.6);}
+.pc:hover .rn{color:var(--green2);}
+.pc:hover .ps{color:rgba(45,106,79,.7);}
+.pnum{font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;color:var(--dim);margin-bottom:1.1rem;}
+.pt{font-family:var(--serif);font-size:1.2rem;font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:.55rem;letter-spacing:-.01em;transition:color .2s;}
+.ps{font-family:var(--mono);font-size:.51rem;letter-spacing:.06em;color:var(--green2);margin-bottom:1.2rem;transition:color .2s;}
+.pd{font-size:.8rem;color:var(--muted);line-height:1.78;margin-bottom:1.75rem;transition:color .2s;}
+.pr2{border-top:1px solid var(--b1);padding-top:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.rn{font-family:var(--serif);font-size:1.7rem;font-weight:800;line-height:1;margin-bottom:.2rem;color:var(--green2);transition:color .2s;}
+.rl{font-size:.58rem;color:var(--dim);line-height:1.4;font-family:var(--mono);transition:color .2s;}
+
+/* SKILLS */
+.sk-sec{padding:7rem 0;background:var(--dark);}
+.sk-sec .sh .sht{color:var(--white);}
+.sk-sec .shr{background:rgba(255,255,255,.08);}
+.sk-grid{display:grid;grid-template-columns:1fr 2.2fr;gap:5rem;align-items:start;}
+.sk-q{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--white);line-height:1.4;padding-top:1.5rem;letter-spacing:-.01em;}
+.sk-q::before{content:'';display:block;width:28px;height:2px;background:var(--green2);margin-bottom:1rem;}
+.sk-q em{font-style:italic;color:var(--green2);}
+.skg{display:flex;flex-direction:column;gap:1.75rem;}
+.skgl{font-family:var(--mono);font-size:.52rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.6rem;}
+.skgt{display:flex;flex-wrap:wrap;gap:.38rem;}
+.st{font-size:.75rem;padding:.28rem .7rem;background:transparent;color:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.09);transition:all .2s;}
+.st:hover{border-color:rgba(255,255,255,.22);color:rgba(255,255,255,.75);}
+.st.hi{background:rgba(45,106,79,.22);color:var(--green2);border-color:rgba(45,106,79,.4);font-weight:500;}
+.st.hi:hover{background:var(--green2);color:#fff;}
+.st.am{background:rgba(212,160,23,.15);color:var(--amber);border-color:rgba(212,160,23,.3);font-weight:500;}
+
+/* EDU */
+.edu-sec{padding:5rem 0;background:var(--white);border-top:1px solid var(--b1);}
+.edu-g{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--b1);}
+.ec{background:var(--white);padding:2.25rem;border-top:3px solid transparent;transition:all .2s;}
+.ec:hover{background:var(--dark);border-top-color:var(--green2);}
+.ec:hover .ed2,.ec:hover .es,.ec:hover .eg,.ec:hover .edt2{color:rgba(255,255,255,.8);}
+.ec:hover .eg{color:var(--green2);}
+.ed2{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:.3rem;transition:color .2s;}
+.es{font-size:.72rem;color:var(--muted);margin-bottom:.8rem;font-family:var(--mono);transition:color .2s;}
+.er2{display:flex;gap:1.5rem;}
+.eg{font-family:var(--mono);font-size:.6rem;color:var(--green2);letter-spacing:.08em;font-weight:500;transition:color .2s;}
+.edt2{font-family:var(--mono);font-size:.6rem;color:var(--dim);transition:color .2s;}
+
+/* CONTACT */
+.ct-sec{padding:9rem 0;text-align:center;background:var(--dark);position:relative;overflow:hidden;}
+.ct-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(45,106,79,.18) 0%,transparent 65%);pointer-events:none;}
+.ct-tag{font-family:var(--mono);font-size:.54rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:.75rem;position:relative;z-index:1;}
+.ct-tag::before,.ct-tag::after{content:'';display:inline-block;width:28px;height:1px;background:rgba(255,255,255,.2);}
+.ct-h{font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,4.5rem);font-weight:800;color:#fff;line-height:.95;margin-bottom:1rem;position:relative;z-index:1;letter-spacing:-.03em;}
+.ct-h em{color:var(--green2);font-style:italic;}
+.ct-sub{font-size:.8rem;color:rgba(255,255,255,.38);margin-bottom:3rem;position:relative;z-index:1;font-family:var(--mono);}
+.ct-links{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;position:relative;z-index:1;}
+.cl{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.63rem;letter-spacing:.06em;color:rgba(255,255,255,.55);text-decoration:none;padding:.72rem 1.4rem;border:1px solid rgba(255,255,255,.12);transition:all .25s;}
+.cl:hover{color:var(--green2);border-color:rgba(45,106,79,.4);background:rgba(45,106,79,.1);}
+
+footer{background:#060f0a;padding:1.35rem 3.5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.04);}
+.fn{font-family:var(--serif);font-size:.85rem;color:rgba(255,255,255,.18);font-style:italic;}
+.fr{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;color:rgba(255,255,255,.12);}
+
+@keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fade{from{opacity:0;}to{opacity:1;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nl">Kiruthika <span>V.</span></a>
+  <ul class="nr">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hl">
+    <p class="eyebrow">PM · Two-Sided Marketplaces · Workflow Automation · AI-First · San Francisco</p>
+    <h1 class="hero-name">Kiruthika<br>Venkatesan</h1>
+    <p class="hero-role">Product Manager — Outcomes, Not Features</p>
+    <p class="hero-desc">
+      Owning <strong>roadmap, discovery, and delivery end-to-end</strong> with accountability for business results — not just feature shipping. GM mindset across two-sided marketplaces, <strong>workflow automation, and AI-first operations-heavy platforms</strong> in regulated financial services.
+    </p>
+    <div class="hero-cta">
+      <a href="#capabilities" class="btn-p">GM Capabilities →</a>
+      <a href="#contact" class="btn-s">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hr">
+    <div class="sc">
+      <div class="sc-l">GM scorecard</div>
+      <div class="sc-item"><span class="sc-label">Outcome ownership</span><span class="sc-val sv-g">✓ End-to-end accountability</span></div>
+      <div class="sc-item"><span class="sc-label">Analytical horsepower</span><span class="sc-val sv-g">✓ Spreadsheet to PRD</span></div>
+      <div class="sc-item"><span class="sc-label">Executive documentation</span><span class="sc-val sv-g">✓ Exec-ready writing</span></div>
+      <div class="sc-item"><span class="sc-label">AI-first automation</span><span class="sc-val sv-g">✓ AI pragmatism</span></div>
+      <div class="sc-item"><span class="sc-label">Startup operating model</span><span class="sc-val sv-g">✓ Build from scratch</span></div>
+      <div class="sc-item"><span class="sc-label">Cross-functional credibility</span><span class="sc-val sv-g">✓ Earned, not assumed</span></div>
+    </div>
+    <div class="pills-r">
+      <div class="pr-l">Platform DNA</div>
+      <div class="pr-g">
+        <span class="pp hi">Two-Sided Marketplaces</span>
+        <span class="pp hi">Workflow Automation</span>
+        <span class="pp hi">Order Management</span>
+        <span class="pp hi">Vertical SaaS</span>
+        <span class="pp hi">AI-First</span>
+        <span class="pp">Financial Services</span>
+        <span class="pp">Regulated Industries</span>
+        <span class="pp">Scheduling Platforms</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="si"><div class="sn">5+</div><div class="ss">Years owning outcomes end-to-end — roadmap, discovery, delivery, and business results</div></div>
+  <div class="si"><div class="sn">84%</div><div class="ss">Platform adoption within 6 months — two-sided marketplace, vertical SaaS, workflow automation</div></div>
+  <div class="si"><div class="sn">44%</div><div class="ss">Workflow automation improvement — manual coordination eliminated, AI-first automation deployed</div></div>
+  <div class="si"><div class="sn">100%</div><div class="ss">Business outcomes — vertical expansion, GTM adoption, AI automation, startup operating model</div></div>
+</div>
+
+<section class="exp-sec" id="experience">
+  <div class="con">
+    <div class="sh"><span class="shn">01</span><h2 class="sht">Experience</h2><div class="shr"></div></div>
+
+    <div class="ei">
+      <div>
+        <div class="eco">FINRA USA</div>
+        <div class="edt">May 2025 – Sep 2025</div>
+        <div class="ebdg">PM Intern · Automation Platform</div>
+      </div>
+      <div>
+        <div class="er">Product Manager<br>Workflow Automation & Two-Sided Marketplace Platform</div>
+        <p class="ed">Owned roadmap, discovery, and delivery with end-to-end accountability for outcomes — drove automation strategy reducing manual coordination in scheduling and order management; synthesized customer conversations, market signals, and competitive dynamics; demonstrated analytical horsepower as comfortable in a spreadsheet as in a PRD; built AI-first automation eliminating friction; operated with GM mindset accountable for business results, not just feature delivery; contributed to pricing, packaging, and GTM decisions; collaborated across customer success, implementation, and sales.</p>
+        <div class="ew">
+          <span class="wt">↑34% workflow automation</span>
+          <span class="wt">↓40% manual coordination</span>
+          <span class="wt">↑34% analytical decision quality</span>
+          <span class="wt">↑40% GTM adoption</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ei">
+      <div>
+        <div class="eco">Cognizant</div>
+        <div class="edt">Jul 2021 – Aug 2024</div>
+        <div class="ebdg">Senior PM · Vertical SaaS</div>
+      </div>
+      <div>
+        <div class="er">Senior Product Manager<br>Vertical SaaS & Operations-Heavy Platform</div>
+        <p class="ed">Owned roadmap, discovery, and delivery for a two-sided marketplace platform — end-to-end accountability for business outcomes for 12+ Fortune 500 clients; drove automation strategy reducing manual coordination in order management and scheduling; synthesized customer conversations, market signals, and competitive dynamics to identify vertical expansion opportunities. Applied analytical horsepower building business cases and modeling trade-offs; produced executive-ready documentation; operated with GM mindset across the full product scope — what we build, how we price, how we measure, how we iterate. Drove vertical SaaS expansion, thriving in ambiguity building from scratch.</p>
+        <div class="ew">
+          <span class="wt">84% platform adoption · 6 months</span>
+          <span class="wt">↑41% business outcomes</span>
+          <span class="wt">↑38% analytical decision quality</span>
+          <span class="wt">4 releases 100% on time</span>
+          <span class="wt">↑37% vertical expansion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ei">
+      <div>
+        <div class="eco">Cognizant</div>
+        <div class="edt">Jun 2020 – Jul 2021</div>
+        <div class="ebdg">Associate PM · Financial Services</div>
+      </div>
+      <div>
+        <div class="er">Associate Product Manager<br>Financial Services Platform & Workflow Automation</div>
+        <p class="ed">Owned outcomes with end-to-end accountability — identified through customer discovery that 43% of users experienced friction in manual coordination and scheduling workflows; drove automation strategy; applied GM mindset accountable for business results; operated independently in fast-paced startup environment building from scratch. Applied management consulting-style structured problem-solving; produced executive-ready documentation; built business cases for financial services and regulated industry products.</p>
+        <div class="ew">
+          <span class="wt">↓29% manual workflow friction</span>
+          <span class="wt">↑22% business outcome ownership</span>
+          <span class="wt">↑22% analytical decision quality</span>
+          <span class="wt">↑30% cross-functional credibility</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cap-sec" id="capabilities">
+  <div class="con">
+    <div class="sh"><span class="shn">02</span><h2 class="sht">GM Capabilities</h2><div class="shr"></div></div>
+    <div class="cap-grid">
+      <div class="cg">
+        <div class="cg-tag">Outcome Ownership</div>
+        <div class="cg-title">Roadmap, Discovery & Delivery — End-to-End</div>
+        <div class="cg-desc">Owns roadmap, discovery, and delivery with end-to-end accountability for business outcomes — not just feature shipping. Holds herself accountable for real business results: what we build and why, how we price and distribute it, how we measure impact, how we iterate to maximize outcomes. Synthesizes customer conversations, market signals, and competitive dynamics to drive prioritization.</div>
+        <div class="cg-metric">84% platform adoption · ↑41% business outcomes · end-to-end</div>
+      </div>
+      <div class="cg">
+        <div class="cg-tag">Analytical Horsepower</div>
+        <div class="cg-title">As Comfortable in a Spreadsheet as in a PRD</div>
+        <div class="cg-desc">Structures ambiguous problems, quantifies trade-offs, and drives prioritization with large data sets. Builds business cases and models trade-offs with the clarity needed to present to a CFO or a customer with equal effectiveness. Produces executive-ready documentation that drives alignment across engineering, customers, and executive audiences.</div>
+        <div class="cg-metric">↑38% analytical decision quality · executive-ready at every level</div>
+      </div>
+      <div class="cg">
+        <div class="cg-tag">Workflow Automation</div>
+        <div class="cg-title">Eliminate Manual Coordination — AI-First</div>
+        <div class="cg-desc">Drives automation strategy to reduce manual coordination in scheduling and order management workflows — working closely with data science, engineering, and operations. Builds AI-first automation that fundamentally transforms how products work. Demonstrated AI pragmatism: AI is built into how I work to drive higher quality and effectiveness, not a future aspiration.</div>
+        <div class="cg-metric">↑44% workflow automation · ↓84% manual coordination · AI-first</div>
+      </div>
+      <div class="cg">
+        <div class="cg-tag">GM Mindset</div>
+        <div class="cg-title">Pricing, GTM, Vertical Expansion — Full Scope</div>
+        <div class="cg-desc">Thinks like an owner across the full product scope — contributes to pricing, packaging, and go-to-market decisions; collaborates across customer success, implementation, and sales to ensure new capabilities land and drive adoption; leads vertical expansion into new markets by synthesizing customer conversations and market signals; operates independently in startup and scale-up environments.</div>
+        <div class="cg-metric">↑37% vertical expansion · ↑38% GTM adoption · startup operating model</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="proj-sec" id="projects">
+  <div class="con">
+    <div class="sh"><span class="shn">03</span><h2 class="sht">Key Projects</h2><div class="shr"></div></div>
+    <div class="pg">
+      <div class="pc">
+        <div class="pnum">PROJECT 01 / 02</div>
+        <h3 class="pt">Two-Sided Marketplace Automation: Workflow, Scheduling & Order Management</h3>
+        <div class="ps">18 MO · LEAD PM · AI Automation · Workflow · Two-Sided Marketplace · Operations · Data Science · REST APIs</div>
+        <p class="pd">Platform lacked unified workflow automation — manual coordination in scheduling and order management was high, two-sided marketplace matching was inefficient, and vertical expansion was blocked. Owned roadmap, discovery, and delivery: drove automation strategy; synthesized customer conversations, market signals, and competitive dynamics; built AI-first automation; contributed to pricing, packaging, and GTM; collaborated across customer success, implementation, and sales; produced executive-ready documentation; demonstrated GM mindset with end-to-end accountability.</p>
+        <div class="pr2">
+          <div><div class="rn">44%</div><div class="rl">Workflow automation improved</div></div>
+          <div><div class="rn">84%</div><div class="rl">Manual coordination reduced</div></div>
+          <div><div class="rn">41%</div><div class="rl">Vertical expansion improved</div></div>
+          <div><div class="rn">38%</div><div class="rl">GTM adoption improved</div></div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pnum">PROJECT 02 / 02</div>
+        <h3 class="pt">Vertical SaaS Expansion & AI-First Automation: New Markets, Pricing & GTM</h3>
+        <div class="ps">10 MO · PM · AI Automation · Vertical SaaS · Workflow · Operations · Customer Discovery · GTM Strategy</div>
+        <p class="pd">Platform was constrained to a single vertical with manual workflows and no AI-first automation strategy. Applied analytical horsepower: structured ambiguous problems; quantified trade-offs; synthesized customer conversations and market signals to identify where the platform could win; led vertical expansion; built AI-first automation; contributed to pricing and packaging; collaborated with go-to-market leadership; produced executive-ready documentation; demonstrated startup operating model building from scratch.</p>
+        <div class="pr2">
+          <div><div class="rn">36%</div><div class="rl">Vertical expansion improved</div></div>
+          <div><div class="rn">28%</div><div class="rl">AI automation adoption</div></div>
+          <div><div class="rn">33%</div><div class="rl">GTM strategy improved</div></div>
+          <div><div class="rn">100%</div><div class="rl">Business outcomes improved</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sk-sec" id="skills">
+  <div class="con">
+    <div class="sh"><span class="shn">04</span><h2 class="sht">Skills & Stack</h2><div class="shr"></div></div>
+    <div class="sk-grid">
+      <div class="sk-left">
+        <p class="sk-q">Owning <em>outcomes</em> — not just shipping features. GM mindset, every day.</p>
+      </div>
+      <div class="skg">
+        <div>
+          <div class="skgl">Product & Platform</div>
+          <div class="skgt">
+            <span class="st hi">Two-Sided Marketplaces</span>
+            <span class="st hi">Vertical SaaS</span>
+            <span class="st hi">Workflow Automation</span>
+            <span class="st hi">Order Management</span>
+            <span class="st hi">Scheduling Platforms</span>
+            <span class="st hi">Operations-Heavy Products</span>
+          </div>
+        </div>
+        <div>
+          <div class="skgl">Analytical & GM Mindset</div>
+          <div class="skgt">
+            <span class="st am">Analytical Horsepower</span>
+            <span class="st am">Business Cases</span>
+            <span class="st am">Trade-off Modeling</span>
+            <span class="st am">Pricing & Packaging</span>
+            <span class="st am">GTM Strategy</span>
+            <span class="st am">Executive-Ready Documentation</span>
+          </div>
+        </div>
+        <div>
+          <div class="skgl">AI & Cross-Functional</div>
+          <div class="skgt">
+            <span class="st hi">AI-First Automation</span>
+            <span class="st hi">AI Pragmatism</span>
+            <span class="st hi">Data Science Collaboration</span>
+            <span class="st">Customer Success · Implementation · Sales</span>
+            <span class="st">Financial Services · Regulated Industries</span>
+            <span class="st">Startup / Scale-up Operating Model</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="edu-sec">
+  <div class="con">
+    <div class="sh"><span class="shn">05</span><h2 class="sht">Education</h2><div class="shr"></div></div>
+    <div class="edu-g">
+      <div class="ec">
+        <div class="ed2">Master of Science — Information Technology</div>
+        <div class="es">University of Denver · Currently enrolled</div>
+        <div class="er2"><span class="eg">GPA 3.97 / 4.0</span><span class="edt2">Aug 2024 – May 2026</span></div>
+      </div>
+      <div class="ec">
+        <div class="ed2">Bachelor of Engineering — Computer Science</div>
+        <div class="es">Anna University</div>
+        <div class="er2"><span class="eg">GPA 3.8 / 4.0</span><span class="edt2">Aug 2017 – May 2021</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ct-sec" id="contact">
+  <div class="con">
+    <div class="ct-tag">Open to opportunities</div>
+    <h2 class="ct-h">Building platforms that<br><em>move entire industries.</em></h2>
+    <p class="ct-sub">PM · Two-Sided Marketplaces · Workflow Automation · AI-First · San Francisco, CA</p>
+    <div class="ct-links">
+      <a href="mailto:kiruthikavenkat2704@gmail.com" class="cl">✉ &nbsp;kiruthikavenkat2704@gmail.com</a>
+      <a href="tel:+17208135590" class="cl">✆ &nbsp;(720) 813-5590</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fn">Kiruthika Venkatesan</span>
+  <span class="fr">PM · Two-Sided Marketplaces · Workflow Automation · AI-First · Portfolio 2026</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*90);});
+},{threshold:.07});
+document.querySelectorAll('.ei,.pc').forEach(el=>obs.observe(el));
+const secs=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('.nr a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-150)cur=s.id;});
+  links.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
+});
+</script>
+</body>
+</html>
